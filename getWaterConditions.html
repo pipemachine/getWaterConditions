@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="getWaterConditions.js"></script>
+</head>
+<body>
+	<h1>Example of getWaterConditions jQuery Plugin</h1>
+
+          <button id="blueStatus">Blue River Status</button>
+          <div id="statusSection" style="display:none;">
+           <h3>Flow Info:</h3>
+           <b>River Name:</b>
+           <p id="displayNameBlue"> </p> 
+	   <b>Flow:</b>
+           <p id="displayFlowBlue"> </p>
+	   <b>Site Number:</b>
+           <p id="displayNumberBlue"> </p> 
+	   <b>Date:</b>
+            <p id="displayDateBlue"> </p>
+	   <b>Time:</b>
+            <p id="displayTimeBlue"> </p>
+          </div>
+
+          <button id="williamsBtnTrigger">Williams Fork Status</button>
+          <div id="statusSectionW" style="display:none;">
+           <h3>Flow Info:</h3>
+           <p id="williamsFlowInfo"> </p>
+          </div>
+
+<script type="text/javascript">
+  // The following section is an example of the javascript required to
+  // fetch the flow data for site 09050700 and display it with a toggled div
+  $().getWaterConditions({trigger:'#blueStatus', 
+                          siteNumber:'09050700', 
+                          targets:{
+                            flowTarget:'#displayFlowBlue',
+                            nameTarget:'#displayNameBlue',
+                            numberTarget:'#displayNumberBlue',
+                            dateTarget:'#displayDateBlue',
+                            timeTarget:'#displayTimeBlue'
+                          },
+                          singleTarget: null
+                         });
+
+   $( "#blueStatus" ).click(function(){
+     $("#statusSection").toggle(); 
+   });
+
+  //Another example for Williams Fork
+  //This example uses the single Target option
+  $().getWaterConditions({trigger:'#williamsBtnTrigger', 
+                          siteNumber:'09038500', 
+                          targets: null,
+                          singleTarget: "#williamsFlowInfo"
+                         });
+
+   $( "#williamsBtnTrigger" ).click(function(){
+     $("#statusSectionW").toggle(); 
+   });
+
+</script>
+</body>
+</html>
+
