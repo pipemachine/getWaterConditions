@@ -2,7 +2,7 @@
 
 ## Requirments
 * jQuery is the only software dependency for this plugin.
-* This plugin is heavily reliant on the [USGS REST Service](https://waterservices.usgs.gov/rest/IV-Service.html#Testing). It is import that the API endpoints are active and that they continue to support CORS (Cross-Origin Resource Sharing)
+* This plugin is heavily reliant on the [USGS REST Service](https://waterservices.usgs.gov/rest/IV-Service.html#Testing). It is import that the API endpoints are active and that they continue to support CORS (Cross-Origin Resource Sharing). If the API endpoints ever seem to stop responding, contact the USGS team using the contact form on their page. 
 
 ## Contents
 * getWaterConditions.js is the actual jQuery plugin itself. It contains the minimal description and comments for use.
@@ -25,11 +25,11 @@ First, be sure to include the plugin, along with jQuery, in your html page. The 
 
 ```
 
-Descriptions for all the option values follow. NOTE: either targets OR singleTarget is required, not both (set the one that's not used to null).
+Descriptions for all the option values follow. NOTE: either `targets` OR `singleTarget` is required, not both (set the one that's not used to null).
 
 | Option | Description |
 | ------ | ----------- |
-| trigger | An id/class tag of an element who's click triggers the data fetch |
+| trigger | An id/class tag of an element whos click triggers the data fetch |
 | siteNumer | The USGS site number for the correponding location of the river |
 | targets | An object of additional options that specify rendering targets |
 | flowTarget | An element tag (id/class) for the flow value to render |
@@ -57,4 +57,4 @@ Then the files are served to `localhost:8000`
 
 ## Additional Notes
 * If it is inconvenient to upload the plugin file and reference it in html, one can always drop the whole plugin inside `<script> </script>` in the html page and still use it just as in the examples.
-
+* The plugin includes a few select log statements to help debug errors. If there is ever unexpected behavior with the plugin, fire up the browser dev console and see if there are any error notes.
