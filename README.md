@@ -42,3 +42,19 @@ The call(s) to the plugin should be in `<script> </script>` tags.
 
 ## Example
 The example includes the proper use of the plugin for both the targets object and singleTarget. The expected behavior of the example follows:
+
+![Alt expectedBehavior](expectedBehavior.gif?raw=true "Expected Behavior of Plugin from Example")
+
+When running the example (or the plugin in any case) in a local setting, it has to be behind a webserver! If there is no webserver, the browser will not set origin and auth headers properly to interact with the CORS policy on the server. One option for a very simple webserver is using a the python module for this purpose (the following are run from the dir to be served):
+```
+python -m SimpleHTTPServer 8000
+```
+Or for python 3
+```
+python3 -m http.server 8000
+```
+Then the files are served to `localhost:8000`
+
+## Additional Notes
+* If it is inconvenient to upload the plugin file and reference it in html, one can always drop the whole plugin inside `<script> </script>` in the html page and still use it just as in the examples.
+
